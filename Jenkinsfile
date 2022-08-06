@@ -9,7 +9,7 @@ pipeline {
         }
         stage('docker build') {
             steps {
-                sh 'sudo docker build  -t  ashish0095/pipeline:v1  . '
+                sh 'sudo docker build  -t  ashish0095/pipeline:v2  . 
             }
         }
         stage('docker images') {
@@ -19,12 +19,12 @@ pipeline {
         }
         stage('docker rm') {
             steps {
-                sh 'sudo docker rm -f pipe1'
+                sh 'sudo docker rm -f pipe2'
             }
         }
         stage('docker run') {
             steps {
-                sh 'sudo docker run -d --name pipe1  -p 8083:80 ashish0095/pipeline:v1'
+                sh 'sudo docker run -d --name pipe2  -p 8084:80 ashish0095/pipeline:v2'
             }
         }
         stage('docker login') {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('docker push') {
             steps {
-                sh 'sudo docker push ashish0095/pipeline:v1'
+                sh 'sudo docker push ashish0095/pipeline:v2'
             }
         }
         stage('print success') {
