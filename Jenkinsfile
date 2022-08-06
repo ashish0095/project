@@ -10,7 +10,7 @@ pipeline {
         stage('docker build') {
             steps {
                 sh 'sudo docker build  -t  ashish0095/pipeline:v2' . 
-            }
+             }
         }
         stage('docker images') {
             steps {
